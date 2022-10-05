@@ -9,12 +9,13 @@ public class Player : MonoBehaviour
     public bool onGround = true;
     public Rigidbody2D rb2d;
     public bool clicked = false;
-   
+    private ScoreManager scoreManager;
+
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-      
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
     private void Update()
     {    
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
             if(col.gameObject.transform.position.y < transform.position.y - 1)
             {
                 onGround = true;
+                scoreManager.addScore();
             }
          
   
