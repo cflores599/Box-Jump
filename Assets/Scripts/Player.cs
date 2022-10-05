@@ -32,8 +32,12 @@ public class Player : MonoBehaviour
       
         if (col.gameObject.tag == "stand")
         {
-            onGround = true;
-            Debug.Log("enter");
+            if(col.gameObject.transform.position.y < transform.position.y - 1)
+            {
+                onGround = true;
+            }
+         
+  
         }
     }
 
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
         if (col.gameObject.tag == "stand")
         {
             onGround = false;
-            Debug.Log("exit");
+         
         }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3895941530702113795}
   - component: {fileID: 3025266675871071390}
   - component: {fileID: 7052686672140211682}
-  - component: {fileID: 3838448156179866221}
+  - component: {fileID: 1460016386468178271}
   m_Layer: 0
   m_Name: ButtonJump
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3838448156179866221
+--- !u!114 &1460016386468178271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7052686672140211682}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  jumpForce: 3
 --- !u!1 &7850928935501967804
 GameObject:
   m_ObjectHideFlags: 0
