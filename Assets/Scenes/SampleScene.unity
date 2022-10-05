@@ -2067,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreImg: {fileID: 1221605183}
+  recordImg: {fileID: 544383854}
 --- !u!4 &1788990775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2936229940250109824, guid: 93d42d980f6729847be6c938c7a373f8, type: 3}

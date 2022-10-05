@@ -7,7 +7,9 @@ public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
     private float currentScore=-1;
+    private float record;
     public TMP_Text scoreImg;
+    public TMP_Text recordImg;
 
 
     void Start()
@@ -24,6 +26,12 @@ public class ScoreManager : MonoBehaviour
     public void addScore()
     {
         currentScore++;
+        if (record < currentScore)
+        {
+            record = currentScore;
+            recordImg.text = record.ToString();
+        }
         scoreImg.text = currentScore.ToString();
+
     }
 }
