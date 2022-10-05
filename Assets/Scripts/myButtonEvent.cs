@@ -12,14 +12,14 @@ public class myButtonEvent : Button
     private bool clicking = false;
     private float maxJumpforce = 1;
     public Image img;
-    private spawner spaw;
+    private spawn spaw;
     
     void Start()
     {
         maxJumpforce = 1;
         player = FindObjectOfType<Player>();
         img = GameObject.FindGameObjectWithTag("forceBar").GetComponent<Image>();
-        spaw = FindObjectOfType<spawner>();
+        spaw = FindObjectOfType<spawn>();
     }
 
     // Update is called once per frame
