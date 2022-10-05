@@ -1,35 +1,33 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour {
-
-    private float timeBtwSpawns;
-    public float startTimeBtwSpawns;
-    public float timeDecrease;
-    public float minTime;
-
-    public GameObject[] obstacleTemplate;
-
-    private void Start()
+public class spawner : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public GameObject standPrefab;
+    private float lastRandX=0;
+    
+  
+    void Start()
     {
-        timeBtwSpawns = startTimeBtwSpawns;
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if (timeBtwSpawns <= 0)
-        {
-            int rand = Random.Range(0, obstacleTemplate.Length);
-            Instantiate(obstacleTemplate[rand], transform.position, Quaternion.identity);
-            timeBtwSpawns = startTimeBtwSpawns;
-            if (startTimeBtwSpawns > minTime) {
-                startTimeBtwSpawns -= timeDecrease;
-            }
-        }
-        else {
-            timeBtwSpawns -= Time.deltaTime;
-        }
+        
     }
-
+    public void Instantiate()
+    {
+        float randX = Random.Range(0, 1);
+    
+        float randScalex = Random.Range(1.6f, 2.1f);
+        float randScaley = Random.Range(1.5f, 4.5f);
+      
+        GameObject stand= Instantiate(standPrefab, new Vector3(transform.position.x + randX,transform.position.y,transform.position.z), Quaternion.identity);
+        stand.transform.localScale = new Vector3(randScalex, randScaley, 1);
+       
+    }
 }
