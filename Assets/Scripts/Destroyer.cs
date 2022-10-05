@@ -16,12 +16,11 @@ public class Destroyer : MonoBehaviour {
        
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("asadasd");
-        if (other.tag == "stand")
+        if (col.tag == "stand")
         {
-            Destroy(other);
+            Destroy(col);
         }
     }
 }

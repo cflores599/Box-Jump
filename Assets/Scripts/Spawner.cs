@@ -6,6 +6,8 @@ public class spawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject standPrefab;
+    private float lastRandX=0;
+    
   
     void Start()
     {
@@ -19,7 +21,8 @@ public class spawner : MonoBehaviour
     }
     public void Instantiate()
     {
-        float randX = Random.Range(-1, 1);
+        float randX = Random.Range(0, 1);
+    
         float randScalex = Random.Range(1.6f, 2.1f);
         float randScaley = Random.Range(1.5f, 4.5f);
       
