@@ -10,8 +10,14 @@ public class ScoreManager : MonoBehaviour
     private float record=0;
     public TMP_Text scoreImg;
     public TMP_Text recordImg;
+    public TMP_Text newRecordImg;
     private bool isNewRecord=false;
     private saveLoad saveLoadScript;
+    
+    [Space]
+    [Header("Sounds")]
+    public AudioClip newRecordAudio;
+    private audioManager audioMan;
 
     void Start()
     {
@@ -19,6 +25,7 @@ public class ScoreManager : MonoBehaviour
         saveLoadScript = FindObjectOfType<saveLoad>();
         record= saveLoadScript.Load();
         recordImg.text = record.ToString();
+        audioMan = FindObjectOfType<audioManager>();
     }
 
     // Update is called once per frame
@@ -44,6 +51,9 @@ public class ScoreManager : MonoBehaviour
         if (isNewRecord)
         {
             saveLoadScript.Save(record);
+            audioMan.setAudio(newRecordAudio);
+            audioMan.PlaySource();
+            newRecordImg.enabled = true;
         }
     }
 }

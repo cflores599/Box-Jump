@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2924632199475732006}
   - component: {fileID: 2924632199475732005}
   - component: {fileID: 2924632199475732004}
-  - component: {fileID: 2924632199475732001}
+  - component: {fileID: 1034536221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.15294118, g: 0, b: 0.34117648, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0017595291, y: -0.0013410449}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96832085, y: 0.9674834}
   m_EdgeRadius: 0
 --- !u!114 &2924632199475732005
 MonoBehaviour:
@@ -126,9 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f547aa996fbc834e80df9edfe2d5fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGround: 1
-  rb2d: {fileID: 0}
-  clicked: 0
+  jumpEffect: {fileID: 1414099114102734, guid: b39c016ae3b89bf439f1499ba32b9b53, type: 3}
+  camAnim: {fileID: 0}
+  jumpAudio: {fileID: 0}
+  dashAudio: {fileID: 0}
+  shootAudio: {fileID: 0}
+  blinkAudio: {fileID: 0}
 --- !u!50 &2924632199475732004
 Rigidbody2D:
   serializedVersion: 4
@@ -150,15 +153,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2924632199475732001
-MonoBehaviour:
+--- !u!95 &1034536221
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2924632199475732011}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d674c681f8ebb438249cbe26680bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f5c9631dec502849a7cb47840f2110d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

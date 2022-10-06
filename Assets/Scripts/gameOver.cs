@@ -9,10 +9,17 @@ public class gameOver : MonoBehaviour
     public Canvas gameOverScreen;
     private bool isGameOver=false;
     private ScoreManager scoreManage;
+    private Animator gameOverAnimator;
 
+    [Space]
+    [Header("Sounds")]
+    public AudioClip gameOverAudio;
+    private audioManager audioMan;
     void Start()
     {
         scoreManage = FindObjectOfType<ScoreManager>();
+        audioMan = FindObjectOfType<audioManager>();
+        gameOverAnimator = gameOverScreen.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,9 +38,17 @@ public class gameOver : MonoBehaviour
        
         if (col.tag == "Player")
         {
-            isGameOver=true;
-            gameOverScreen.enabled = true;
-            scoreManage.ScoreManage();
+            audioMan.setAudio(gameOverAudio);
+            audioMan.PlaySource();
+            Invoke("showGameOverScreen", 2f);
         }
+    }
+
+    private void showGameOverScreen()
+    {
+        isGameOver = true;
+        gameOverScreen.enabled = true;
+        gameOverAnimator.enabled = true;
+        scoreManage.ScoreManage();
     }
 }
