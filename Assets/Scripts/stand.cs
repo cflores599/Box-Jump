@@ -15,7 +15,7 @@ public class stand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player.onGround)
+        if (!player.getOnGround())
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }

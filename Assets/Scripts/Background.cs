@@ -17,7 +17,7 @@ public class Background : MonoBehaviour {
 
     private void Update()
     {
-        if (!player.onGround)
+        if (!player.getOnGround())
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
             if (transform.position.x < Xend)

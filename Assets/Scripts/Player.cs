@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
  
-    public bool onGround = true;
-    public Rigidbody2D rb2d;
-    public bool clicked = false;
+    private bool onGround = true;
+    private Rigidbody2D rb2d;
     private ScoreManager scoreManager;
-
+    private Animator anim;
+    public GameObject jumpEffect;
+    public Animator camAnim;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         scoreManager = FindObjectOfType<ScoreManager>();
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {    
@@ -24,6 +25,10 @@ public class Player : MonoBehaviour
     public void Jump(float jumpForce)
     {
         rb2d.velocity = new Vector2(0, 1) * jumpForce;
+        anim.SetTrigger("jump");
+     //   camAnim.SetTrigger("shake");
+        Instantiate(jumpEffect, transform.position, Quaternion.identity);
+
 
     }
 
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour
             {
                 onGround = true;
                 scoreManager.addScore();
+                anim.SetTrigger("stand");
             }
          
   
@@ -53,5 +59,10 @@ public class Player : MonoBehaviour
             onGround = false;
          
         }
+    }
+
+    public bool getOnGround()
+    {
+        return onGround;
     }
 }

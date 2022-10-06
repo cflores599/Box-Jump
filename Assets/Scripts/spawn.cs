@@ -25,7 +25,6 @@ public class spawn : MonoBehaviour
 
         float randScalex = Random.Range(1.6f, 2.1f);
         float randScaley = Random.Range(1.5f, 4.5f);
-
         GameObject stand = Instantiate(standPrefab, new Vector3(transform.position.x + randX, transform.position.y, transform.position.z), Quaternion.identity);
         stand.transform.localScale = new Vector3(randScalex, randScaley, 1);
 

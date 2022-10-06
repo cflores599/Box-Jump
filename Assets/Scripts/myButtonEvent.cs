@@ -13,6 +13,7 @@ public class myButtonEvent : Button
     private float maxJumpforce = 1;
     public Image img;
     private spawn spaw;
+    private float barForceController;
     
     void Start()
     {
@@ -25,25 +26,30 @@ public class myButtonEvent : Button
     // Update is called once per frame
     void Update()
     {
+
+
         if (clicking)
         {
             if(maxJumpforce > 0)
             {
               
                 jumpForce += Time.deltaTime * 7;
-                img.fillAmount = jumpForce;
                 maxJumpforce -= Time.deltaTime;
-              
+                if(barForceController < 1)
+                {
+                    barForceController += Time.deltaTime;
+                }
+               
             }
-            
-         
-        
-            
+            img.fillAmount = barForceController;
+
         }
+
+        
     }
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (player.onGround)
+        if (player.getOnGround())
         {
             base.OnPointerDown(eventData);
             clicking = true;
@@ -55,7 +61,7 @@ public class myButtonEvent : Button
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (player.onGround)
+        if (player.getOnGround())
         {
             base.OnPointerUp(eventData);
             clicking = false;
@@ -63,6 +69,8 @@ public class myButtonEvent : Button
             spaw.Instantiate();
             jumpForce = 3;
             maxJumpforce = 1;
+            barForceController = 0;
+            img.fillAmount = barForceController;
         }
     }
 }
