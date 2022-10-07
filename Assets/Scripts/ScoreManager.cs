@@ -6,7 +6,7 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float currentScore=-1;
+    private float currentScore=0;
     private float record=0;
     public TMP_Text scoreImg;
     public TMP_Text recordImg;

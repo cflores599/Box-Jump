@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject jumpEffect;
     public Animator camAnim;
+    public GameObject JumpInfo;
 
     [Space]
     [Header("Sounds")]
     public AudioClip jumpAudio;
+    public AudioClip goodAudio;
+    public AudioClip perfectAudio;
     private audioManager audioMan;
 
 
@@ -49,9 +53,23 @@ public class Player : MonoBehaviour
         {
             if(col.gameObject.transform.position.y < transform.position.y - 1)
             {
+                if(col.gameObject.transform.position.x +0.1 > transform.position.x && col.gameObject.transform.position.x -0.2 < transform.position.x)
+                {
+                    scoreManager.addScore();
+                    JumpInfo.GetComponent<TMP_Text>().text = "PERFECT +2";
+                    audioMan.setAudio(perfectAudio);
+                    
+                }
+                else
+                {
+                    JumpInfo.GetComponent<TMP_Text>().text = "GOOD +1";
+                    audioMan.setAudio(goodAudio);
+                }
+                audioMan.PlaySource();
                 onGround = true;
                 scoreManager.addScore();
                 anim.SetTrigger("stand");
+                JumpInfo.GetComponent<Animator>().SetTrigger("show");
             }
          
   
@@ -63,7 +81,7 @@ public class Player : MonoBehaviour
     public void OnCollisionExit2D(Collision2D col)
     {
       
-        if (col.gameObject.tag == "stand")
+        if (col.gameObject.tag == "stand" || col.gameObject.tag == "start")
         {
             onGround = false;
          
