@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
         
         saveLoadScript = FindObjectOfType<saveLoad>();
         record= saveLoadScript.Load();
-        recordImg.text = record.ToString();
+        recordImg.text = "Record: " + record.ToString();
         audioMan = FindObjectOfType<audioManager>();
     }
 
@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         {
             isNewRecord = true;
             record = currentScore;
-            recordImg.text = record.ToString();
+            recordImg.text = "Record: " + record.ToString();
         }
         scoreImg.text = currentScore.ToString();
 
