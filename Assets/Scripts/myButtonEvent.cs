@@ -25,6 +25,7 @@ public class myButtonEvent : Button
         img = GameObject.FindGameObjectWithTag("forceBar").GetComponent<Image>();
         spaw = FindObjectOfType<spawn>();
         audioMan = FindObjectOfType<audioManager>();
+        charge = FindObjectOfType<buttonAudioClip>().clip;
     }
 
     // Update is called once per frame
@@ -59,8 +60,8 @@ public class myButtonEvent : Button
             base.OnPointerDown(eventData);
             clicking = true;
             Debug.Log("Pressed");
-        //    audioMan.setAudio(charge);
-            //audioMan.PlaySource();
+            audioMan.setAudio(charge);
+            audioMan.PlaySource();
         }
     
       
@@ -79,6 +80,6 @@ public class myButtonEvent : Button
             barForceController = 0;
             img.fillAmount = barForceController;
         }
-      //  audioMan.StopSource();
+       // audioMan.StopSource();
     }
 }
