@@ -7,7 +7,7 @@ public class Restart : MonoBehaviour {
 
 
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.R)){
+        if (Input.GetMouseButtonDown(0)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
